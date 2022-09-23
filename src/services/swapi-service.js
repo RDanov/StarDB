@@ -1,10 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-class SwapiService {
+export default class SwapiService {
   _apiBase = "https://swapi.dev/api";
   async getResource(url) {
     const res = await fetch(`${this._apiBase}${url}`);
@@ -41,32 +35,3 @@ class SwapiService {
     return this.getResource(`/starships/${id}/`);
   }
 }
-
-const swapi = new SwapiService();
-
-swapi.getAllPlanets().then((p) => {
-  console.log(p);
-});
-
-/* const getResource = async (url) => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error("Error. Not found");
-  }
-  const body = await res.json();
-  return body;
-}; */
-
-/* getResource("https://swapi.dev/api/people/1/")
-  .then((body) => {
-    console.log(body);
-  })
-  .catch((err) => {
-    console.log("Error");
-  }); */
-
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
