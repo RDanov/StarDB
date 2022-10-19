@@ -9,7 +9,7 @@ import RandomPlanet from "./components/random-planet/random-planet";
 export default class App extends React.Component {
   state = {
     showRandomPlanet: true,
-    selectedPerson: null,
+    selectedPerson: 6,
   };
 
   onPersonSelected = (id) => {
